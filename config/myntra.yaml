@@ -1,0 +1,48 @@
+
+webscrapers:
+  webdriverpath: chromedriver.exe  # your webdriver and your browser version should be same
+            # i have try with chrome browser  not conform to it scraper work with other browser or not
+
+myntraparams:
+  myntralinks: https://www.myntra.com
+  sublinks: ?p=
+
+  product:
+    - li
+    - class
+    - product-base
+
+  ratings:
+    - div
+    - class
+    - product-ratingsContainer
+
+  imglink:
+    - img
+    - class
+    - img-responsive
+
+  price:
+    - span
+    - class
+    - product-discountedPrice
+
+  productbuywebsite:
+    - a
+    - target
+    - _blank
+
+
+user:
+  totalpageonecategory: 1
+  categorys:
+    - Blazer
+    - T shirt
+    - Trousers
+    - jacket
+    - Shirts
+    - sweaters
+    - jeans
+    - shorts
+    - track pants and joggers
+    - sweatshirts
