@@ -9,6 +9,8 @@ import pandas as pd
 import time
 import os
 import pickle
+from tqdm import tqdm
+from colorama import Fore
 import warnings
 warnings.simplefilter("ignore")
 
@@ -62,7 +64,7 @@ class MyntraScraper:
         index = 0
         driver = webdriver.Chrome(executable_path=self.webdriverpath, options=self.option)
 
-        for category in self.categorys:
+        for category in tqdm(self.categorys,ncols = 100,desc ="webscraping process start",colour='YELLOW'):
             for pagenumber in range(self.pagetotalsearch):
                 linksearch = f"{self.myntralinks }/{category}{self.sublinks}{pagenumber + 1}"
 
@@ -128,7 +130,10 @@ class MyntraScraper:
         driver.quit()
         time_elapsed = time.time() - since
         print(f"Total Time Taken To complete {time_elapsed // 60:.0f}m {time_elapsed % 60:.0f}s")
-        self.df.to_pickle(self.dataframefilepath)
+        dictionary = self.df.to_dict('dict')
+        filehandler = open(self.dataframefilepath ,"wb")
+        pickle.dump(dictionary, filehandler)
+        filehandler.close()
 
 
 
