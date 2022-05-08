@@ -1,0 +1,21 @@
+PyYAML
+tensorflow
+torch
+torchvision
+torchaudio
+matplotlib
+scipy
+selenium
+beautifulsoup4
+pandas
+tqdm
+scikit-learn
+opencv-python
+dvc
+-e .
+fastapi
+"uvicorn[standard]"
+python-multipart
+"python-jose[cryptography]"
+"passlib[bcrypt]"
+streamlit

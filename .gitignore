@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 .idea/
 .vscode/
+exp.py
+.ipynb_checkpoints/

@@ -1,0 +1,23 @@
+artifacts:
+  artifactdir: artifacts
+  image_dir: data
+  preprocessed: preprocessed
+  raw: raw
+  train_dir: train
+  val_dir: val
+  meta_data_dir: meta_data
+  analysisdataframe: AnalysisDataFrame
+  dataframepkl: DataFrame.pkl
+  pytorchhistory: historypth.pkl
+  pytorchmodel: pytmodel.pth
+  tensoflowmodel: tensorflowmodel.h5
+  tensorflowhistory: historyh5.pkl 
+  PytorchCCBRFEfile: pytrochccbrFE.pkl
+  PytorchCCBRImagefile: pytorchccbrImage.pkl
+  TensorFlowCCBRfile: tensorflowccbrFE.pkl
+  TesnsorFlowCCBRImagefile: tensorflowccbrImage.pkl
+  pytrochnomralfe: pytorchnormalfe.pkl
+  pytrochnomralimage: pytrochnomralimage.pkl
+  tensoflownormalfe: tensoflownormalfe.pkl
+  tensorflonormalimage: tensorflonormalimage.pkl
+  

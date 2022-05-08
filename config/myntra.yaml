@@ -32,9 +32,13 @@ myntraparams:
     - target
     - _blank
 
+  brandname:
+    - h3
+    - class
+    - product-brand
 
 user:
-  totalpageonecategory: 1
+  totalpageonecategory: 50
   categorys:
     - Blazer
     - T shirt

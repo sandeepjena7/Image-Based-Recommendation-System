@@ -1,0 +1,6 @@
+
+random_state: 38
+batch_size: 32
+lr: 0.01
+epoch: 2
+class: 10

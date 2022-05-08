@@ -1,0 +1,56 @@
+stages:
+  stage_01:
+    cmd: python DeepImageSearch/TEnsorflow.py --config=config/config.yaml --params=params.yaml
+    deps: 
+      # - artifacts/data/preprocessed # you have uncommit mk for hassing images
+      - DeepImageSearch/TEnsorflow.py
+      - DeepImageSearch/utils/allutils.py 
+    params:
+      - batch_size
+      - epoch 
+      - lr 
+      - class 
+    outs:
+      - artifacts/meta_data/tensorflowmodel.h5
+      - artifacts/meta_data/historyh5.pkl 
+  
+  stage_02: 
+    cmd: python DeepImageSearch/PYtorch.py --config=config/config.yaml --params=params.yaml
+    deps: 
+      # - artifacts/data/preprocessed  # you have uncommit mk for hassing images
+      - DeepImageSearch/PYtorch.py
+      - DeepImageSearch/utils/allutils.py 
+    params:
+      - batch_size
+      - epoch 
+      - lr 
+      - class 
+    outs:
+      - artifacts/meta_data/pytmodel.pth
+      - artifacts/meta_data/historypth.pkl
+  
+  stage_03: 
+    cmd: python DeepImageSearch/Ccbrfeatureextractor.py --config=config/config.yaml --params=params.yaml
+    deps:
+      # - artifacts/data/preprocessed # you have uncommit mk for hassing images
+      - DeepImageSearch/Ccbrfeatureextractor.py
+      - DeepImageSearch/utils/allutils.py 
+      - DeepImageSearch/PYtorch.py
+    outs:
+      - artifacts/meta_data/pytrochccbrFE.pkl
+      - artifacts/meta_data/pytorchccbrImage.pkl
+      - artifacts/meta_data/tensorflowccbrFE.pkl
+      - artifacts/meta_data/tensorflowccbrImage.pkl
+  
+  stage_04:
+    cmd: python DeepImageSearch/Normalfeatureextractor.py --config=config/config.yaml --params=params.yaml
+    deps:
+      # - artifacts/data/preprocessed # you have uncommit mk for  
+      - DeepImageSearch/Normalfeatureextractor.py
+      - DeepImageSearch/utils/allutils.py 
+    outs:
+      - artifacts/meta_data/pytorchnormalfe.pkl
+      - artifacts/meta_data/pytrochnomralimage.pkl
+      - artifacts/meta_data/tensoflownormalfe.pkl
+      - artifacts/meta_data/tensorflonormalimage.pkl
+
