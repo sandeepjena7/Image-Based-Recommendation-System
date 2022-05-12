@@ -157,7 +157,7 @@ class SearchImageNormalPytoch:
         for ind in indices[0]:
             file = self.imagepaths[ind]
             files.append(file)
-        return files
+        return files[1:]
 
 
 
@@ -177,7 +177,7 @@ class SearchImageNormaltensorflow:
         for ind in indices[0]:
             file = self.imagesten[ind]
             files.append(file)
-        return files
+        return files[1:]
 
 
 def normalmain():

@@ -17,17 +17,17 @@ stages:
         lr: 0.01
     outs:
     - path: artifacts/meta_data/historyh5.pkl
-      md5: e0c6044abeff2c27d70de3699783a0b5
-      size: 160
+      md5: 6a957f5e92403372f60f4c7c2d7bca03
+      size: 148
     - path: artifacts/meta_data/tensorflowmodel.h5
-      md5: 58e7bda1e81b3155af9b9f990a899bb0
-      size: 285334208
+      md5: 69079b04f6d8642467cb36fd11fe6cad
+      size: 285337096
   stage_02:
     cmd: python DeepImageSearch/PYtorch.py --config=config/config.yaml --params=params.yaml
     deps:
     - path: DeepImageSearch/PYtorch.py
-      md5: 6fc5ea41b5d73ada9bb43cd96a03081a
-      size: 6785
+      md5: 55c5b9a07ec89a36fcd1b811d4b95f74
+      size: 6862
     - path: DeepImageSearch/utils/allutils.py
       md5: 2f87a7bb1064fc6e1995381d98700aa9
       size: 4360
@@ -39,10 +39,10 @@ stages:
         lr: 0.01
     outs:
     - path: artifacts/meta_data/historypth.pkl
-      md5: 85e0108d643f1b51393fd9fa592449f2
-      size: 160
+      md5: 618e4d4f1e0f1acf1ce337312c1f331c
+      size: 148
     - path: artifacts/meta_data/pytmodel.pth
-      md5: 85385265b5b4b0228ff9353c7fda2ce1
+      md5: 5c92dbd8b214cfcc04a655b657853704
       size: 88117
   stage_03:
     cmd: python DeepImageSearch/Ccbrfeatureextractor.py --config=config/config.yaml
@@ -52,21 +52,44 @@ stages:
       md5: b81c4055c76363c99513f4548264129a
       size: 11258
     - path: DeepImageSearch/PYtorch.py
-      md5: 6fc5ea41b5d73ada9bb43cd96a03081a
-      size: 6785
+      md5: 55c5b9a07ec89a36fcd1b811d4b95f74
+      size: 6862
     - path: DeepImageSearch/utils/allutils.py
       md5: 2f87a7bb1064fc6e1995381d98700aa9
       size: 4360
     outs:
     - path: artifacts/meta_data/pytorchccbrImage.pkl
-      md5: d1e1b9e08670fb50f30f2d144eebaf39
-      size: 681595
+      md5: 4c13f580a078f16aaffc017290d76fe9
+      size: 640346
     - path: artifacts/meta_data/pytrochccbrFE.pkl
-      md5: 79d4831a68c372b7013ffd4158f5f081
-      size: 563556
+      md5: 62d45401843662442547e1e0263bdce9
+      size: 420261
     - path: artifacts/meta_data/tensorflowccbrFE.pkl
-      md5: 7c9d272a494146735f1f03f539493e32
-      size: 24919496
+      md5: dc4c6d1aac78c2e5697eda8a856101e0
+      size: 24779513
     - path: artifacts/meta_data/tensorflowccbrImage.pkl
-      md5: d1e1b9e08670fb50f30f2d144eebaf39
-      size: 681595
+      md5: 4c13f580a078f16aaffc017290d76fe9
+      size: 640346
+  stage_04:
+    cmd: python DeepImageSearch/Normalfeatureextractor.py --config=config/config.yaml
+      --params=params.yaml
+    deps:
+    - path: DeepImageSearch/Normalfeatureextractor.py
+      md5: bbb440be94454dc8bdcce3eb71ee1277
+      size: 7732
+    - path: DeepImageSearch/utils/allutils.py
+      md5: 2f87a7bb1064fc6e1995381d98700aa9
+      size: 4360
+    outs:
+    - path: artifacts/meta_data/pytorchnormalfe.pkl
+      md5: 8c2579c8ca1d1e26e3e122f0e1c29bb9
+      size: 12491732
+    - path: artifacts/meta_data/pytrochnomralimage.pkl
+      md5: 55410b9a74b4cdda9e6623deb2640617
+      size: 640200
+    - path: artifacts/meta_data/tensoflownormalfe.pkl
+      md5: 85ca4c78d7fd1fad44ccddb3bd1bd58d
+      size: 12491732
+    - path: artifacts/meta_data/tensorflonormalimage.pkl
+      md5: 55410b9a74b4cdda9e6623deb2640617
+      size: 640200

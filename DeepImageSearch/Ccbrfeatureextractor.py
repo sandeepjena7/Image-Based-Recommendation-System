@@ -121,6 +121,7 @@ class SearchImagePytorch:
 
         self.dictcatfilename = util.read_pickle(self.FE.metadatapytorchimagenamesfilename)
         self.dictcatvector = util.read_pickle(self.FE.metadatapytrochccbrfeatures)
+        
 
 
 
@@ -147,7 +148,7 @@ class SearchImagePytorch:
             file = self.dictcatfilename[self.classes[index]][ind]
             files.append(file)
 
-        return files
+        return files[1:]
 
 
 
@@ -241,7 +242,7 @@ class SearchImageTensorflow:
         for ind in indices[0]:
             file = self.dictcatfilename[self.classes[index]][ind]
             files.append(file)
-        return files
+        return files[1:]
 
 
 def ccbrmain():

@@ -1,12 +1,13 @@
 artifacts:
   artifactdir: artifacts
   image_dir: data
+  raw: raw
   preprocessed: preprocessed
   raw: raw
   train_dir: train
   val_dir: val
   meta_data_dir: meta_data
-  analysisdataframe: AnalysisDataFrame
+  analysisdataframe: AnalysisDataFrame.pkl
   dataframepkl: DataFrame.pkl
   pytorchhistory: historypth.pkl
   pytorchmodel: pytmodel.pth

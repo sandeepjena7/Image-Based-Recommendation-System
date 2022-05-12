@@ -10,6 +10,10 @@ import os
 from time import time
 import copy
 import argparse
+import tensorflow as tf
+
+
+
 
 class _seed:
     @staticmethod
@@ -107,7 +111,8 @@ class CustoModelPytorch:
         history = {'loss':[],'accuracy':[],'val_loss':[],'val_accuracy':[]}
         since = time()
         best_model_wts = copy.deepcopy(model.state_dict())
-        best_acc = 0.0
+        best_acc = 0.0       
+
         for epoch in range(self.epoch):
             print(f"Epoch {epoch + 1}/{self.epoch}")
             print("-" * 30)
@@ -122,7 +127,8 @@ class CustoModelPytorch:
                 running_correct = 0
 
                 run_time = time()
-                for inputs, labels in dataloader[phase]:
+                for i,(inputs, labels) in  enumerate( dataloader[phase]):
+                    
                     inputs = inputs.to(self.device)
                     labels = labels.to(self.device)
 
@@ -140,7 +146,6 @@ class CustoModelPytorch:
                 epoch_loss = running_loss / (len(dataloader[phase]) * self.batchsize)
                 epoch_acc = running_correct / (len(dataloader[phase]) * self.batchsize)
                 print(f"{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f} Time: {time() - run_time:.2f}")
-
                 if phase == 'train':
                     history['loss'].append(epoch_loss)
                     history['accuracy'].append(epoch_acc)
