@@ -3,7 +3,6 @@ artifacts:
   image_dir: data
   raw: raw
   preprocessed: preprocessed
-  raw: raw
   train_dir: train
   val_dir: val
   meta_data_dir: meta_data

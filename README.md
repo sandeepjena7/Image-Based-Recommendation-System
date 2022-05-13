@@ -13,7 +13,7 @@
 
 
 ```bash
-conda env create -f conda.yml
+conda env create -f environment.yml
 ```
 
 
@@ -23,16 +23,13 @@ source activate recomendation
 ```
 
 
-
-
-```bash
-conda env create -f conda.yml
-```
-
-
 ```bash
 streamlit run Streamlit.py
 ```
+
+#### Or used inital_setup.sh for created environment
+
+
 
 
 ### information
