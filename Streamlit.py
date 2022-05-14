@@ -110,7 +110,7 @@ elif app_mode == "Run on Image on prediction":
                 if save_uploaded_file(uploaded_file):
 
                     image =Image.open(uploaded_file)
-                    image.save('Workdir/run.png')
+                    image.save("Workdir/run.png")
                     st.sidebar.text("orginal image")
                     st.sidebar.image(image)
                     
@@ -118,7 +118,7 @@ elif app_mode == "Run on Image on prediction":
                     image_parser(dict_)
 
                     st.snow()
-                    st.balloons()
+                    # st.balloons()
 
                 else:
                     print("File is not proper")

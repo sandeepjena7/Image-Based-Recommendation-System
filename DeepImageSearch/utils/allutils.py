@@ -6,6 +6,7 @@ import glob
 import pickle
 import logging.config
 import logging
+from base64 import b64encode,b64decode
 
 
 class SetUpLogging():
@@ -61,13 +62,37 @@ class util:
         except Exception as e:
             print(e)
 
+    @staticmethod
+    def encode_base64(filename):
+        try:
+            with open(filename,"rb") as file:
+                return b64encode(file.read())
+        except Exception as e:
+            print(e)
+            raise e
+
+
+    @staticmethod
+    def decode_base64(data,filename):
+        try:  
+            imgdata = b64decode(data)
+            with open(filename, 'wb') as file:
+                file.write(imgdata)
+                file.close()
+        except:
+            raise "File path or data format is not proper way to read"
+    
+    @staticmethod
+    def remove_upload_image():
+        p = Path("uploads")
+        for file in p.iterdir():
+            if os.path.isfile(file):
+                file.unlink()
 
 
 
 class LoadImagesNormal:
-
     def __init__(self, path, custom=None):
-
         p = str(Path(path).resolve())
 
         if '*' in p:
@@ -135,7 +160,6 @@ class LoadImagesCCBR:
         return self
 
     def __next__(self):
-
         if self.count == self.nf:
             raise StopIteration
 

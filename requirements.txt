@@ -13,9 +13,9 @@ scikit-learn
 opencv-python
 dvc
 -e .
-# fastapi
-# uvicorn
-# python-multipart
-# python-jose[cryptography]
-# passlib[bcrypt]
-# streamlit
+fastapi
+uvicorn
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+streamlit

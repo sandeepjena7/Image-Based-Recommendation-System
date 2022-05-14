@@ -40,7 +40,6 @@ class RUN:
 
             elif Framework in "Tensorflow":
                 if Technique in 'CCBR':
-                    print('yess')
                     imagespath = SearchImageTensorflow(self.config).get_similar_images(image)
                 elif Technique in 'Pre-trained':
                     imagespath = SearchImageNormaltensorflow(self.config).get_similar_images_normal(image)
@@ -64,14 +63,16 @@ class RUN:
                     
 
                 value = {'recomnddf':toprecomenddf.to_dict('list'),'ratting5':top5rattingdf.to_dict('list')}
-
-                s = open('ss.pkl', 'wb')
-                pickle.dump(value,s)
-                s.close
                 return value
                 
             elif usedcase == 'api':
-                return imagespath
+                encodeimage = []
+
+                for i,imgpath in enumerate(imagespath):
+                    encodeimage.append({f"image{i}":util.encode_base64(imgpath)})
+                
+                return encodeimage
+
         
 
     
