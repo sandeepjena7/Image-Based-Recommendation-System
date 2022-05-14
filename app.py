@@ -1,12 +1,10 @@
 from fastapi import FastAPI ,Request, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Depends, FastAPI, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from jose import JWTError, jwt
-from passlib.context import CryptContext
 import uvicorn
 from webapp.routers import login,predict
-import logging
+import os
+os.makedirs("logs",exist_ok=True)
 
 
 app  = FastAPI()
