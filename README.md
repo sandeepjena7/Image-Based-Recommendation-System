@@ -11,6 +11,16 @@
 
 ### Sandeep Jena
 
+## Purpose
+The size of the `fashion market is continuously increasing`, and the digital industry in the fashion
+market created a new paradigm. While customers can access various fashion apparel through the
+digitalized paradigm and they have more options to choose from, it is not easy for them to search for the
+style that they want online. `General users do not know what keyword` they should use to search for the
+style they want. Accordingly, shopping malls need to implement a more effective information retrieval
+system that should be able to recommend clothing by identifying the preference of the consumer to
+resolve limitations and provide optimal service. Therefore, it is increasingly important for shopping
+malls to implement a system that supports efficient searches and recommendations
+
 # About the Project:
     
 This project can be applied to recommend images based on the image you upload. The technique used here are
